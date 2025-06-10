@@ -6,7 +6,10 @@ import { connectDB } from "@/lib/mongodb";
 import Motor from "@/models/Motor";
 import cloudinary from "@/lib/cloudinary";
 
-export async function GET(_: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  request: Request,
+  { params }: { params: { id: string } }
+) {
   await connectDB();
   const { id } = await params;
 
