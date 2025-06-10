@@ -11,10 +11,9 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   await connectDB();
-  const { id } = await params;
 
   try {
-    const motor = await Motor.findById(id);
+    const motor = await Motor.findById(params.id);
     if (!motor)
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(motor);
