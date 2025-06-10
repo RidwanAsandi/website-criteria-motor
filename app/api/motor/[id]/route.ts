@@ -1,19 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 //Untuk GET (by id), PUT (update), DELETE
 // app/api/motor/[id]/route.ts
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/mongodb";
 import Motor from "@/models/Motor";
 import cloudinary from "@/lib/cloudinary";
 
+export const dynamicParams = true; // Ini adalah solusi utama
+
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Record<string, any> } // ✅ Perbaikan di sini
 ) {
   await connectDB();
+  const id = params.id;
 
   try {
-    const motor = await Motor.findById(params.id);
+    const motor = await Motor.findById(id);
     if (!motor)
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     return NextResponse.json(motor);
@@ -24,10 +28,10 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Record<string, any> } // ✅ Perbaikan di sini
 ) {
   await connectDB();
-  const { id } = await params;
+  const id = params.id;
   const data = await req.json();
 
   try {
@@ -42,12 +46,12 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  context: { params: { id: string } }
+  { params }: { params: Record<string, any> } // ✅ Perbaikan di sini
 ) {
   try {
     await connectDB();
-    const { id: motorId } = await context.params;
-    const motor = await Motor.findById(motorId);
+    const id = params.id;
+    const motor = await Motor.findById(id);
 
     if (!motor) {
       return NextResponse.json(
@@ -64,7 +68,7 @@ export async function DELETE(
     }
 
     // Hapus data motor
-    await Motor.findByIdAndDelete(motorId);
+    await Motor.findByIdAndDelete(id);
 
     return NextResponse.json({ message: "Motor dihapus" });
   } catch (error) {
