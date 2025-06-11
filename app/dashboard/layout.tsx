@@ -15,11 +15,13 @@ export default function DashboardLayout({
       <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div
         className={`flex flex-col flex-1 bg-gray-100 ${
-          isOpen ? "pl-64" : "pl-20"
+          isOpen ? "pl-64" : "pl-14"
         }`}
       >
         <Navbar />
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
+        <main className="flex-1 overflow-y-auto pt-4 px-2 md:px-4">
+          {children}
+        </main>
       </div>
     </div>
   );

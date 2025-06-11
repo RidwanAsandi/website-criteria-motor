@@ -48,8 +48,8 @@ export default async function DetailPage({
   return (
     <>
       <Navbar />
-      <div className="p-6 max-w-4xl mx-auto pt-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div className="p-4 max-w-4xl mx-auto pt-16 md:pt-28">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-16 gap-10">
           {/* Menggunakan komponen ImageGallery baru */}
           <ImageGallery
             images={imagesToDisplay.map((img) => img.url)}
@@ -57,7 +57,7 @@ export default async function DetailPage({
           />
           {/* Akhir penggunaan ImageGallery */}
 
-          <div className="space-y-1">
+          <div className="space-y-1 px-3 md:mx-auto">
             <div className="mb-4">
               <h1 className="text-2xl font-bold">{motor.nama}</h1>
               <h3 className="text-xl font-bold">
@@ -65,7 +65,7 @@ export default async function DetailPage({
               </h3>
               <p>{motor.status}</p>
             </div>
-            <div className="flex gap-14">
+            <div className="flex justify-between ">
               <div className="descripsi-jenis-motor space-y-2">
                 <div className="flex items-center gap-2">
                   <FaMotorcycle />
@@ -102,7 +102,7 @@ export default async function DetailPage({
                 <p>{motor.jenis}</p>
               </div>
             </div>
-            <div className="p-5">
+            <div className="flex justify-center items-center p-4">
               <Link href="/kontak-kami">
                 <button className="px-12 py-2.5 border rounded-lg text-white bg-gray-600 hover:bg-slate-50/90 hover:text-gray-600 transition">
                   Hubungi Kami

@@ -4,7 +4,7 @@ import { signOut } from "next-auth/react";
 import { FiLogOut } from "react-icons/fi";
 
 const Navbar = () => (
-  <div className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+  <div className="bg-white shadow-md pl-4 pr-6 py-4 flex justify-between items-center">
     <h2 className="font-bold text-lg">Dashboard</h2>
     <button
       onClick={() => signOut({ callbackUrl: "/login" })} // Redirect ke halaman login setelah logout

@@ -201,7 +201,7 @@ export default function AddMotorForm() {
           className="w-full"
         />
         {/* Preview dan Hapus */}
-        <div className="flex gap-2 overflow-x-auto">
+        <div className="flex gap-2 overflow-x-auto p-5">
           {previews.map((src, i) => (
             <div key={i} className="relative">
               <Image

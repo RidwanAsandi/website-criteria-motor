@@ -59,22 +59,22 @@ const Navbar = () => {
           }`}
         >
           <li>
-            <Link href="/" className="font-serif">
+            <Link href="/" >
               Beranda
             </Link>
           </li>
           <li>
-            <Link href="/jenis-motor" className="font-serif">
+            <Link href="/jenis-motor" >
               Jenis Motor
             </Link>
           </li>
           <li>
-            <Link href="/alamat-kami" className="font-serif">
+            <Link href="/alamat-kami">
               Alamat Kami
             </Link>
           </li>
           <li>
-            <Link href="/kontak-kami" className="font-serif">
+            <Link href="/kontak-kami">
               Kontak Kami
             </Link>
           </li>
@@ -90,7 +90,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="hidden lg:flex items-center gap-3 rounded-full font-serif">
+          <div className="hidden lg:flex items-center gap-3 rounded-full">
             <Link
               className="flex items-center px-8 py-2 border border-gray-600 text-gray-800 rounded-lg hover:bg-gray-100 transition"
               href="/login"
